@@ -1,8 +1,10 @@
-import { Text, Modal, View, Button, StyleSheet } from 'react-native';
+import { Text, Modal, View, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Home, Plus, ChartNoAxesColumn, UserRound } from 'lucide-react-native';
+import MealSection from './components/MealSection';
+import styles from './styles';
 
 export default function App() {
     const [caloriesRemaining, setCaloriesRemaining] = useState(2000);
@@ -27,11 +29,7 @@ export default function App() {
           </View>
 
           {/* Meal Section */}
-          <View style={[styles.section]}>
-            <Text>
-              List of Meals
-            </Text>
-          </View>
+          <MealSection />
 
           {/* App Bar */}
           <View style={[styles.appBar]}>
@@ -62,52 +60,3 @@ export default function App() {
     )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f9fafb',
-    alignItems: 'center',
-    justifyContent: 'center',
-    justifyContent: 'space-between',
-  },
-  section: {
-    backgroundColor: '#fff',
-    borderWidth: 1,
-    borderColor: '#edf2f7',
-    borderRadius: 10,
-    width: '90%',
-    padding: 20,
-  },
-  headerSection: {
-    backgroundColor: '#fff',
-    paddingVertical: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#edf2f7',
-    width: '100%',
-    padding: 10,
-  },
-  heading: {
-    textAlign: 'center',
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  overviewSection: {
-    
-  },
-  appBar: {
-    backgroundColor: '#fff',
-    paddingVertical: 20,
-    borderTopWidth: 1,
-    borderTopColor: '#edf2f7',
-    width: '100%',
-    padding: 10,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  appBarItem: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    fontSize: 8,
-  }
-});
