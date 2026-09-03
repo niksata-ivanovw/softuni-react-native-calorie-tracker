@@ -2,14 +2,15 @@ import { Text, Modal, View, Button, StyleSheet, TouchableOpacity } from 'react-n
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { Home, Plus, ChartNoAxesColumn, UserRound } from 'lucide-react-native';
+import { Home, Plus, ChartNoAxesColumn, UserRound, Ad } from 'lucide-react-native';
 import MealSection from './components/MealSection';
 import styles from './styles';
+import AddMeal from './components/AddMealModal';
 
 export default function App() {
     const [caloriesRemaining, setCaloriesRemaining] = useState(2000);
     const [caloriesBurned, setCaloriesBurned] = useState(0);
-
+    const [showAddMealModal, setShowAddMealModal] = useState(false);
 
     return (
       <SafeAreaProvider>
@@ -29,7 +30,10 @@ export default function App() {
           </View>
 
           {/* Meal Section */}
-          <MealSection />
+          <MealSection onAddMeal={() => setShowAddMealModal(true)} />
+
+          {/* Add Meal Modal */}
+          {showAddMealModal && <AddMeal onClose={() => setShowAddMealModal(false)} />}
 
           {/* App Bar */}
           <View style={[styles.appBar]}>
