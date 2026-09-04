@@ -1,8 +1,12 @@
 import { Modal, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import { StyleSheet } from 'react-native';
+import { useState } from 'react';
 import Button from '../common/Button';
 
-export default function AddMeal({ onClose }) {
+export default function AddMeal({ onClose, onCreate }) {
+    const [mealName, setMealName] = useState('');
+    const [calories, setCalories] = useState('');
+    
     return (
             <Modal animationType="fade" transparent={true}>
                 <View style={styles.centeredView}>
@@ -12,18 +16,22 @@ export default function AddMeal({ onClose }) {
                         <View>
                             <View>
                                 <Text style={styles.inputLabels}>Food Name</Text>
-                                <TextInput style={styles.textInput} placeholder="e.g., Pizza Slice" keyboardType="default"/>
+                                <TextInput style={styles.textInput} placeholder="e.g., Pizza Slice" keyboardType="default" value={mealName} onChangeText={setMealName} />
                             </View>
                             <View>
                                 <Text style={styles.inputLabels}>Calories</Text>
-                                <TextInput style={styles.textInput} placeholder="0" keyboardType="numeric"/>
+                                <TextInput style={styles.textInput} placeholder="0" keyboardType="numeric" value={calories} onChangeText={setCalories} />
                             </View>
                         </View>
 
                         <View>
                             <Button title="Add Meal" onPress={onClose} />
 
-                            <Button style={styles.addMealButton} title="Go Back" onPress={onClose} />
+                            <Button style={styles.addMealButton} title="Go Back" onPress={() => {
+                                
+                                onCreate({ name: mealName, calories: parseInt(calories) });
+                                onClose();
+                            }} />
                         </View>
                     </View>
                 </View>

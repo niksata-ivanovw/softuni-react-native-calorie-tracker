@@ -12,6 +12,11 @@ export default function App() {
     const [caloriesBurned, setCaloriesBurned] = useState(0);
     const [showAddMealModal, setShowAddMealModal] = useState(false);
 
+    const createMealHandler = (meal) => {
+      alert(`Meal created: ${meal.name} with ${meal.calories} calories`);
+      console.log(`Meal created: ${meal.name} with ${meal.calories} calories`);
+    }
+
     return (
       <SafeAreaProvider>
         <SafeAreaView style={styles.container}>
@@ -33,7 +38,7 @@ export default function App() {
           <MealSection onAddMeal={() => setShowAddMealModal(true)} />
 
           {/* Add Meal Modal */}
-          {showAddMealModal && <AddMeal onClose={() => setShowAddMealModal(false)} />}
+          {showAddMealModal && <AddMeal onClose={() => setShowAddMealModal(false)} onCreate={createMealHandler} />}
 
           {/* App Bar */}
           <View style={[styles.appBar]}>
