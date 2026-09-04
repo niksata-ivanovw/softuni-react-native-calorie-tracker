@@ -1,5 +1,6 @@
-import { Modal, Text, View, TouchableOpacity } from 'react-native';
+import { Modal, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import { StyleSheet } from 'react-native';
+import Button from '../common/Button';
 
 export default function AddMeal({ onClose }) {
     return (
@@ -9,23 +10,20 @@ export default function AddMeal({ onClose }) {
                         <Text style={styles.heading}>Add Meal</Text>
 
                         <View>
-                            <Text>Search foods...</Text>
-                            <Text>Many foods</Text>
+                            <View>
+                                <Text style={styles.inputLabels}>Food Name</Text>
+                                <TextInput style={styles.textInput} placeholder="e.g., Pizza Slice" keyboardType="default"/>
+                            </View>
+                            <View>
+                                <Text style={styles.inputLabels}>Calories</Text>
+                                <TextInput style={styles.textInput} placeholder="0" keyboardType="numeric"/>
+                            </View>
                         </View>
 
                         <View>
-                            <TouchableOpacity
-                            onPress={onClose}
-                            style={styles.closeButton}
-                            >
-                                <Text style={styles.closeButtonText}>Go Back</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                            onPress={onClose}
-                            style={styles.closeButton}
-                            >
-                                <Text style={styles.closeButtonText}>Add Custom Food</Text>
-                            </TouchableOpacity>
+                            <Button title="Add Meal" onPress={onClose} />
+
+                            <Button title="Cancel" onPress={onClose} />
                         </View>
                     </View>
                 </View>
@@ -48,21 +46,19 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
     },
     heading: {
-        fontSize: 20,
-        fontWeight: 'bold',
+        fontSize: 24,
+        fontWeight: 700,
         marginBottom: 10,
     },
-    closeButton: {
-        borderColor: '#eaeaea',
-        borderWidth: 1,
-        padding: 10,
-        borderRadius: 5,
-        alignItems: 'center',
-        width: '100%',
-        margin: 'auto',
-        marginTop: 10,
+    inputLabels: {
+        fontSize: 16,
+        fontWeight: 500,
     },
-    closeButtonText: {
-        color: 'black',
+    textInput: {
+        padding: 10,
+        marginBottom: 10,
+    },
+    textInputSelected: {
+
     },
 });
