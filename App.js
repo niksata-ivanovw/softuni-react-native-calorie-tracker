@@ -37,25 +37,36 @@ export default function App() {
 
           {/* App Bar */}
           <View style={[styles.appBar]}>
-            <View style={[styles.appBarItem]}>
-              <Home />
-              <Text style={{fontSize: 13}}>Home</Text>
-            </View> 
+            <TouchableOpacity>
+              <View style={[styles.appBarItem]}>
+                <Home />
+                <Text style={{fontSize: 13}}>Home</Text>
+              </View>
+            </TouchableOpacity>
             
-            <View style={styles.appBarItem}>
-              <Plus />
-              <Text style={{fontSize: 13}}>Add Meal</Text>
-            </View>
+            <TouchableOpacity
+            onPress={() => setShowAddMealModal(true)}
+            hitSlop={10}
+            >
+              <View style={styles.appBarItem}>
+                <Plus />
+                <Text style={{fontSize: 13}}>Add Meal</Text>
+              </View>
+            </TouchableOpacity>
 
-            <View style={styles.appBarItem}>
-              <ChartNoAxesColumn />
-              <Text style={{fontSize: 13}}>Statistics</Text>
-            </View>
+            <TouchableOpacity>
+              <View style={styles.appBarItem}>
+                <ChartNoAxesColumn />
+                <Text style={{fontSize: 13}}>Statistics</Text>
+              </View>
+            </TouchableOpacity>
 
-            <View style={styles.appBarItem}>
-              <UserRound />
-              <Text style={{fontSize: 13}}>Profile</Text>
-            </View>            
+            <TouchableOpacity>
+              <View style={styles.appBarItem}>
+                <UserRound />
+                <Text style={{fontSize: 13}}>Profile</Text>
+              </View>    
+            </TouchableOpacity>        
           </View>
 
           <StatusBar />
