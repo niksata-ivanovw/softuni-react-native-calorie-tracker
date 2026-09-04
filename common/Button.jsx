@@ -10,7 +10,7 @@ export default function Button({
         onPress={onPress}
         style={[styles.button, style]}
         >
-            <Text style={styles.buttonText}>{title}</Text>
+            <Text style={[styles.buttonText, style]}>{title}</Text>
         </TouchableOpacity>
     );
 }

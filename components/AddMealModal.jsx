@@ -23,7 +23,7 @@ export default function AddMeal({ onClose }) {
                         <View>
                             <Button title="Add Meal" onPress={onClose} />
 
-                            <Button title="Cancel" onPress={onClose} />
+                            <Button style={styles.addMealButton} title="Go Back" onPress={onClose} />
                         </View>
                     </View>
                 </View>
@@ -61,4 +61,8 @@ const styles = StyleSheet.create({
     textInputSelected: {
 
     },
+    addMealButton: {
+        backgroundColor: '#000',
+        color: '#fff',
+    }
 });
