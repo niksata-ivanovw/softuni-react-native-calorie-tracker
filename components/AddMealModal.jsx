@@ -25,13 +25,12 @@ export default function AddMeal({ onClose, onCreate }) {
                         </View>
 
                         <View>
-                            <Button title="Add Meal" onPress={onClose} />
-
-                            <Button style={styles.addMealButton} title="Go Back" onPress={() => {
-                                
-                                onCreate({ name: mealName, calories: parseInt(calories) });
+                            <Button title="Add Meal" onPress={() => {
+                                onCreate({ name: mealName, calories: parseInt(calories) || 0 });
                                 onClose();
                             }} />
+
+                            <Button style={styles.addMealButton} title="Go Back" onPress={onClose} />
                         </View>
                     </View>
                 </View>
